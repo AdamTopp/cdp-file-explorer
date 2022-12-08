@@ -2,10 +2,10 @@
   "name": "cdp-file-explorer",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --config webpack.common.js --watch",
+    "watch": "webpack --config webpack.config.js --watch",
     "start": "electron ."
   },
   "repository": {
