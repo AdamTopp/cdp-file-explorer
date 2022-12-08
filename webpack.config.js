@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/react/index.tsx',
+  entry: './src/index.tsx',
   devtool: 'inline-source-map',
   target: 'electron-renderer',
   module: {
@@ -13,13 +13,25 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      esmodules: true,
+                    },
+                  },
+                ],
+                '@babel/preset-react',
+              ],
+            },
           },
         ],
       },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        test: [/\.s[ac]ss$/i, /\.css$/i],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -36,7 +48,7 @@ module.exports = {
   },
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'build', 'react'),
+    path: path.resolve(__dirname, 'build'),
   },
   optimization: {
     usedExports: true,
