@@ -1,6 +1,8 @@
 {
   "name": "cdp-file-explorer",
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "version": "1.0.0",
   "description": "",
   "main": "main.ts",
@@ -9,7 +11,8 @@
     "watch": "webpack --config webpack.config.js --watch",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "concurrently -k \"npm run watch\" \"npm start\""
   },
   "repository": {
     "type": "git",
@@ -23,9 +26,11 @@
   },
   "homepage": "https://github.com/AdamTopp/cdp-file-explorer#readme",
   "dependencies": {
+    "concurrently": "^7.6.0",
     "electron": "^22.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.5",
