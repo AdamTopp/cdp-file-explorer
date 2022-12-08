@@ -1,0 +1,42 @@
+const path = require('path');
+
+module.exports = {
+  mode: 'development',
+  entry: './src/react/index.js',
+  devtool: 'inline-source-map',
+  target: 'electron-renderer',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [[
+              '@babel/preset-env', {
+                targets: {
+                  esmodules: true
+                }
+              }],
+              '@babel/preset-react']
+          }
+        }
+      },
+      // {
+      //   test: [/\.s[ac]ss$/i, /\.css$/i],
+      //   use: [
+      //     'style-loader',
+      //     'css-loader',
+      //   ],
+      // }
+    ]
+  },
+  resolve: {
+    extensions: ['.js'],
+  },
+  output: {
+    filename: 'app.js',
+    path: path.resolve(__dirname, 'build', 'react'),
+  },
+};
