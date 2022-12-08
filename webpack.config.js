@@ -38,4 +38,7 @@ module.exports = {
     filename: 'app.js',
     path: path.resolve(__dirname, 'build', 'react'),
   },
+  optimization: {
+    usedExports: true,
+  },
 };
