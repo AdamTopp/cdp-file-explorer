@@ -1,12 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import BodySection from './BodySection/BodySection';
+import FavouritesPanel from './BodySection/FavouritesPanel/FavouritesPanel';
+import FolderPanel from './BodySection/FolderPanel/FolderPanel';
+import TitleBar from './TitleBar/TitleBar';
 
-const Dd = styled.div`
-  color: red;
+const AppWrapper = styled.div`
+  display: flex;
+  flex-flow: column;
+  height: 100%;
 `;
 
-function App() {
-  return <Dd>Apppppp</Dd>;
-}
+const App = () => {
+  return (
+    <AppWrapper>
+      <TitleBar />
+      <BodySection />
+    </AppWrapper>
+  );
+};
 
 export default App;
