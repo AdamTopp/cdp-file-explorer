@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const BodySectionWrapper = styled.div`
   display: flex;
-  flex-flow: column;
-  flex-grow: 1;
+  margin-top: 3.5rem;
+  height: 100%;
   background-color: #111111e4;
+  overflow: hidden;
 `;

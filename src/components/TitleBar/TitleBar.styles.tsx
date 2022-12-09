@@ -4,7 +4,7 @@ export const TitleBarWrapper = styled.div`
   -webkit-user-select: none;
   -webkit-app-region: drag;
   user-select: none;
-
+  position: fixed;
   display: flex;
   justify-content: space-between;
   width: 100%;

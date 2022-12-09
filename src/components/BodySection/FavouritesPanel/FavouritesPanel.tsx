@@ -5,7 +5,19 @@ import { FavouritesPanelWrapper } from './FavouritesPanel.styles';
 const FavouritesPanel = () => {
   return (
     <FavouritesPanelWrapper>
-      {['Adam', 'Ewa'].map((el: string) => (
+      {[
+        'Adam',
+        'Ewa',
+        'Ja1',
+        'Ja2',
+        'Ja3',
+        'Ja4',
+        'Ja5',
+        'Ja6',
+        'Ja7',
+        'Ja8',
+        'Ja9',
+      ].map((el: string) => (
         <FavouriteWrapper key={el}>{el}</FavouriteWrapper>
       ))}
     </FavouritesPanelWrapper>
