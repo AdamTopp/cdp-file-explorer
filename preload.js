@@ -12,4 +12,11 @@ contextBridge.exposeInMainWorld('electron', {
       ipcRenderer.send('minimize');
     },
   },
+  fileApi: {
+    getFavourites() {
+      ipcRenderer.send('getFavourites');
+    },
+    addEventListener: (channel, callback) => ipcRenderer.on(channel, callback),
+    removeEventListener: (channel) => ipcRenderer.removeAllListeners(channel),
+  },
 });

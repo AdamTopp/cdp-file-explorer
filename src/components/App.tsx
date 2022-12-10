@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BodySection from './BodySection/BodySection';
-import FavouritesPanel from './BodySection/FavouritesPanel/FavouritesPanel';
-import FolderPanel from './BodySection/FolderPanel/FolderPanel';
 import TitleBar from './TitleBar/TitleBar';
+import { fileApi } from '../electron/api';
+import FavouritesContext from '../contexts/FavouritesContext';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -12,11 +12,26 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => {
+  const [favourites, setFavourites] = useState<string[]>([]);
+  const setData = (event: Event, data: string[]) => {
+    setFavourites(data);
+  };
+
+  useEffect(() => {
+    fileApi.addEventListener('getFavourites-response', setData);
+    fileApi.getFavourites();
+    return () => {
+      fileApi.removeEventListener('getFavourites-response');
+    };
+  }, []);
+
   return (
-    <AppWrapper>
-      <TitleBar />
-      <BodySection />
-    </AppWrapper>
+    <FavouritesContext.Provider value={favourites}>
+      <AppWrapper>
+        <TitleBar />
+        <BodySection />
+      </AppWrapper>
+    </FavouritesContext.Provider>
   );
 };
 

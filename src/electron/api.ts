@@ -4,3 +4,9 @@ export const windowApi = {
   minimize: electron.windowApi.minimize,
   maximize: electron.windowApi.maximize,
 };
+
+export const fileApi = {
+  getFavourites: electron.fileApi.getFavourites,
+  addEventListener: electron.fileApi.addEventListener,
+  removeEventListener: electron.fileApi.removeEventListener,
+};

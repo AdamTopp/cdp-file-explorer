@@ -7,8 +7,8 @@ function createWindow() {
     height: 800,
     minWidth: 1250,
     minHeight: 600,
-    titleBarStyle: 'hidden',
-    frame: false,
+    // titleBarStyle: 'hidden',
+    // frame: false,
     transparent: true,
     webPreferences: {
       nodeIntegration: false,
@@ -25,6 +25,17 @@ function createWindow() {
 
   ipcMain.on('minimize', () => {
     win.minimize();
+  });
+
+  ipcMain.on('getFavourites', () => {
+    const documents = app.getPath('documents');
+    const downloads = app.getPath('downloads');
+    const desktop = app.getPath('desktop');
+    win.webContents.send('getFavourites-response', [
+      documents,
+      downloads,
+      desktop,
+    ]);
   });
 
   ipcMain.on('maximize', () => {
