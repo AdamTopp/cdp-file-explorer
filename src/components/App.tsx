@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BodySection from './BodySection/BodySection';
 import TitleBar from './TitleBar/TitleBar';
@@ -33,6 +33,14 @@ const App = () => {
     setFiles(data);
   };
 
+  const refreshFiles = useCallback(() => {
+    if (currentPath && currentPath.length > 0) {
+      console.log('Interval');
+      console.log(currentPath);
+      fileApi.getFiles(currentPath);
+    }
+  }, [currentPath]);
+
   const handlePathChange = (newPath: string) => {
     const newHistory = [...history.paths.splice(0, history.index + 1), newPath];
     setHistory({
@@ -51,25 +59,16 @@ const App = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (favourites.length > 0) {
-  //     const newCurrPath =
-  //       favourites.find((el) => el.id === 'downloads')?.path || '';
-  //     setCurrentPath(newCurrPath);
-  //   }
-  // }, [favourites]);
-
   useEffect(() => {
-    if (currentPath && currentPath.length > 0) {
-      fileApi.getFiles(currentPath);
-    }
-  }, [currentPath]);
+    refreshFiles();
+    const interval = setInterval(refreshFiles, 10000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentPath, refreshFiles]);
 
   useEffect(() => {
     if (history && history.index >= 0 && history.paths.length > 0) {
-      console.log('history');
-      console.log(history);
-      console.log('==============');
       setCurrentPath(history.paths[history.index]);
     }
   }, [history]);
@@ -80,14 +79,12 @@ const App = () => {
 
   const forward = () => {
     if (!isLast) {
-      console.log('Forward!');
       setHistory({ ...history, index: history.index + 1 });
     }
   };
 
   const back = () => {
     if (!isFirst) {
-      console.log('Back!');
       setHistory({ ...history, index: history.index - 1 });
     }
   };

@@ -8,8 +8,8 @@ function createWindow() {
     height: 800,
     minWidth: 1250,
     minHeight: 600,
-    titleBarStyle: 'hidden',
-    frame: false,
+    // titleBarStyle: 'hidden',
+    // frame: false,
     transparent: true,
     webPreferences: {
       nodeIntegration: false,
@@ -25,8 +25,7 @@ function createWindow() {
   });
 
   ipcMain.on('minimize', () => {
-    // win.minimize();
-    shell.openPath('C:\\Users\\citru\\Downloads\\11934746.pdf');
+    win.minimize();
   });
 
   ipcMain.on('get-favourites', () => {
