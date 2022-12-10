@@ -20,17 +20,14 @@ function createWindow() {
   win.loadFile('index.html');
 
   ipcMain.on('close', () => {
-    console.log('close');
     app.quit();
   });
 
   ipcMain.on('minimize', () => {
-    console.log('close');
     win.minimize();
   });
 
   ipcMain.on('maximize', () => {
-    console.log('close');
     if (win.isMaximized()) {
       win.unmaximize();
     } else {

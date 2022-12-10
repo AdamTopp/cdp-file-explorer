@@ -1,5 +1,5 @@
 import React from 'react';
-import windowApi from '../../electron/windowApi';
+import { windowApi } from '../../electron/api';
 import { Button, TitleBarWrapper, Logo, Section } from './TitleBar.styles';
 const TitleBar = () => {
   return (
