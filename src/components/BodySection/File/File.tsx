@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import CurrentPathContext from '../../../contexts/CurrentPathContext';
 import { FolderWrapper } from './File.styles';
 import { fileApi } from '../../../electron/api';
+import { IconWrapper, TextWrapper } from '../Folder/Folder.styles';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 
 const FolderPanel = ({ name }: { name: string }) => {
   const { currentPath } = useContext(CurrentPathContext);
@@ -10,7 +12,10 @@ const FolderPanel = ({ name }: { name: string }) => {
     <FolderWrapper
       onDoubleClick={() => fileApi.openFile(`${currentPath}\\${name}`)}
     >
-      {name}
+      <IconWrapper>
+        <DescriptionOutlinedIcon />
+      </IconWrapper>
+      <TextWrapper>{name}</TextWrapper>
     </FolderWrapper>
   );
 };

@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-export const FolderPanelWrapper = styled.div`
+export const Scrollable = styled.div`
   overflow-y: scroll;
-  display: flex;
   flex: 1;
-  flex-wrap: wrap;
   &::-webkit-scrollbar {
     display: none;
   }
+`;
+
+export const FolderPanelWrapper = styled.div`
+  gap: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
 `;

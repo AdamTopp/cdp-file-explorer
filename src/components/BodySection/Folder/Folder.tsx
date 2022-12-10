@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import CurrentPathContext from '../../../contexts/CurrentPathContext';
-import { FolderWrapper } from './Folder.styles';
+import { FolderWrapper, IconWrapper, TextWrapper } from './Folder.styles';
+import FolderIcon from '@mui/icons-material/Folder';
 
 const FolderPanel = ({ name }: { name: string }) => {
   const { currentPath, setCurrentPath } = useContext(CurrentPathContext);
@@ -9,7 +10,10 @@ const FolderPanel = ({ name }: { name: string }) => {
     <FolderWrapper
       onDoubleClick={() => setCurrentPath(`${currentPath}\\${name}`)}
     >
-      {name}
+      <IconWrapper>
+        <FolderIcon />
+      </IconWrapper>
+      <TextWrapper>{name}</TextWrapper>
     </FolderWrapper>
   );
 };

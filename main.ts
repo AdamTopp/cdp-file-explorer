@@ -8,8 +8,8 @@ function createWindow() {
     height: 800,
     minWidth: 1250,
     minHeight: 600,
-    // titleBarStyle: 'hidden',
-    // frame: false,
+    titleBarStyle: 'hidden',
+    frame: false,
     transparent: true,
     webPreferences: {
       nodeIntegration: false,
@@ -37,9 +37,9 @@ function createWindow() {
     const desktopName = desktop.split('\\').pop();
 
     win.webContents.send('get-favourites-response', [
-      { id: 'documents', path: documents, name: documentsName },
-      { id: 'downloads', path: downloads, name: downloadsName },
       { id: 'desktop', path: desktop, name: desktopName },
+      { id: 'downloads', path: downloads, name: downloadsName },
+      { id: 'documents', path: documents, name: documentsName },
     ]);
   });
 

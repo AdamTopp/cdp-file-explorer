@@ -7,5 +7,5 @@ export const BodySectionWrapper = styled.div`
   margin-top: 3.5rem;
   overflow: hidden;
 
-  background-color: #111111e4;
+  background-color: #000000e2;
 `;

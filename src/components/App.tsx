@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import BodySection from './BodySection/BodySection';
 import TitleBar from './TitleBar/TitleBar';
 import { fileApi } from '../electron/api';
@@ -8,12 +7,11 @@ import { Favoutite, FilesResponse, History } from './App.types';
 import CurrentPathContext from '../contexts/CurrentPathContext';
 import FilesContext from '../contexts/FilesContext';
 import HistoryContext from '../contexts/HistoryContext';
+import { AppWrapper } from './App.styles';
+import '@fontsource/roboto/400.css';
+import SubBar from './SubBar/TitleBar';
 
-const AppWrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-`;
+const START_FOLDER = 'downloads';
 
 const App = () => {
   const [favourites, setFavourites] = useState<Favoutite[]>([]);
@@ -21,22 +19,24 @@ const App = () => {
   const [currentPath, setCurrentPath] = useState<string>('');
   const [history, setHistory] = useState<History>({ paths: [], index: -1 });
 
-  const getFavourites = (event: Event, data: Favoutite[]) => {
+  const isLast = history.index + 1 >= history.paths.length;
+
+  const isFirst = history.index === 0;
+
+  const getFavourites = (_: Event, data: Favoutite[]) => {
     if (data.length > 0) {
       setFavourites(data);
-      const newCurrPath = data.find((el) => el.id === 'downloads')?.path || '';
+      const newCurrPath = data.find((el) => el.id === START_FOLDER)?.path || '';
       setHistory({ paths: [newCurrPath], index: 0 });
     }
   };
 
-  const getFiles = (event: Event, data: FilesResponse) => {
+  const getFiles = (_: Event, data: FilesResponse) => {
     setFiles(data);
   };
 
   const refreshFiles = useCallback(() => {
     if (currentPath && currentPath.length > 0) {
-      console.log('Interval');
-      console.log(currentPath);
       fileApi.getFiles(currentPath);
     }
   }, [currentPath]);
@@ -47,6 +47,18 @@ const App = () => {
       index: newHistory.length - 1,
       paths: newHistory,
     });
+  };
+
+  const forward = () => {
+    if (!isLast) {
+      setHistory({ ...history, index: history.index + 1 });
+    }
+  };
+
+  const back = () => {
+    if (!isFirst) {
+      setHistory({ ...history, index: history.index - 1 });
+    }
   };
 
   useEffect(() => {
@@ -61,7 +73,7 @@ const App = () => {
 
   useEffect(() => {
     refreshFiles();
-    const interval = setInterval(refreshFiles, 10000);
+    const interval = setInterval(refreshFiles, 5000);
     return () => {
       clearInterval(interval);
     };
@@ -72,22 +84,6 @@ const App = () => {
       setCurrentPath(history.paths[history.index]);
     }
   }, [history]);
-
-  const isLast = history.index + 1 >= history.paths.length;
-
-  const isFirst = history.index === 0;
-
-  const forward = () => {
-    if (!isLast) {
-      setHistory({ ...history, index: history.index + 1 });
-    }
-  };
-
-  const back = () => {
-    if (!isFirst) {
-      setHistory({ ...history, index: history.index - 1 });
-    }
-  };
 
   return (
     <HistoryContext.Provider

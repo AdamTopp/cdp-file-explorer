@@ -2,12 +2,13 @@ import styled, { css } from 'styled-components';
 import { buttonEffects, buttonStyles } from '../globalStyles';
 import { Button as MUIButton } from '@mui/material';
 
-export const TitleBarWrapper = styled.div`
+export const SubBarWrapper = styled.div`
   -webkit-user-select: none;
   -webkit-app-region: drag;
   user-select: none;
   position: fixed;
   display: flex;
+  top: 3.5rem;
   justify-content: space-between;
   width: 100%;
   height: 3.5rem;
