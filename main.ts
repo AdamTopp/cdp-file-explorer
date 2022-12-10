@@ -8,8 +8,8 @@ function createWindow() {
     height: 800,
     minWidth: 1250,
     minHeight: 600,
-    // titleBarStyle: 'hidden',
-    // frame: false,
+    titleBarStyle: 'hidden',
+    frame: false,
     transparent: true,
     webPreferences: {
       nodeIntegration: false,

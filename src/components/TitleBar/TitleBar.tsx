@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import HistoryContext from '../../contexts/HistoryContext';
 import { windowApi } from '../../electron/api';
 import { Button, TitleBarWrapper, Logo, Section } from './TitleBar.styles';
 const TitleBar = () => {
+  const { forward, back, isFirst, isLast } = useContext(HistoryContext);
   return (
     <TitleBarWrapper>
       <Section>
         <Logo />
-        <Button onClick={() => console.log('Back')}>{'<'}</Button>
-        <Button onClick={() => console.log('Front')}>{'>'}</Button>
+        <Button disabled={isFirst} onClick={back}>
+          {'<'}
+        </Button>
+        <Button disabled={isLast} onClick={forward}>
+          {'>'}
+        </Button>
       </Section>
       <Section>
         <Button

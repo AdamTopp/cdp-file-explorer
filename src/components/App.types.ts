@@ -8,3 +8,8 @@ export interface FilesResponse {
   files: string[];
   folders: string[];
 }
+
+export interface History {
+  paths: string[];
+  index: number;
+}

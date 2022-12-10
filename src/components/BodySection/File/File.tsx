@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import CurrentPathContext from '../../../contexts/CurrentPathContext';
-import { FolderWrapper } from './Folder.styles';
+import { FolderWrapper } from './File.styles';
+import { fileApi } from '../../../electron/api';
 
 const FolderPanel = ({ name }: { name: string }) => {
-  const { currentPath, setCurrentPath } = useContext(CurrentPathContext);
+  const { currentPath } = useContext(CurrentPathContext);
 
   return (
     <FolderWrapper
-      onDoubleClick={() => setCurrentPath(`${currentPath}\\${name}`)}
+      onDoubleClick={() => fileApi.openFile(`${currentPath}\\${name}`)}
     >
       {name}
     </FolderWrapper>
