@@ -3,3 +3,8 @@ export interface Favoutite {
   path: string;
   name: string;
 }
+
+export interface FilesResponse {
+  files: string[];
+  folders: string[];
+}

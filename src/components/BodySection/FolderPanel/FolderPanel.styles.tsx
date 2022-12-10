@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
-export const FolderPanel = styled.div`
-  color: #5f9e4b;
+export const FolderPanelWrapper = styled.div`
+  overflow-y: scroll;
+  display: flex;
+  flex: 1;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;

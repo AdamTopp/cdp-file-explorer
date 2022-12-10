@@ -9,7 +9,7 @@ const FavouritesPanel = () => {
   return (
     <FavouritesPanelWrapper>
       {favourites.map((el) => (
-        <FavouriteWrapper key={el.url}>{el.name}</FavouriteWrapper>
+        <FavouriteWrapper key={el.path}>{el.name}</FavouriteWrapper>
       ))}
     </FavouritesPanelWrapper>
   );

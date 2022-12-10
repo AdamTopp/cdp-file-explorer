@@ -7,6 +7,8 @@ export const windowApi = {
 
 export const fileApi = {
   getFavourites: electron.fileApi.getFavourites,
+  getFiles: electron.fileApi.getFiles,
+  openFile: electron.fileApi.openFile,
   addEventListener: electron.fileApi.addEventListener,
   removeEventListener: electron.fileApi.removeEventListener,
 };
