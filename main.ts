@@ -35,9 +35,9 @@ function createWindow() {
     const downloadsName = downloads.split('\\').pop();
     const desktopName = desktop.split('\\').pop();
     win.webContents.send('getFavourites-response', [
-      { url: documents, name: documentsName },
-      { url: downloads, name: downloadsName },
-      { url: desktop, name: desktopName },
+      { id: 'documents', path: documents, name: documentsName },
+      { id: 'downloads', path: downloads, name: downloadsName },
+      { id: 'desktop', path: desktop, name: desktopName },
     ]);
   });
 

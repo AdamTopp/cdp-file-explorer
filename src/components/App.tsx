@@ -5,6 +5,7 @@ import TitleBar from './TitleBar/TitleBar';
 import { fileApi } from '../electron/api';
 import FavouritesContext from '../contexts/FavouritesContext';
 import { Favoutite } from './App.types';
+import CurrentPathContext from '../contexts/CurrentPathContext';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ const AppWrapper = styled.div`
 
 const App = () => {
   const [favourites, setFavourites] = useState<Favoutite[]>([]);
+  const [currentPath, setCurrentPath] = useState<string>('');
   const setData = (event: Event, data: Favoutite[]) => {
     setFavourites(data);
   };
@@ -26,13 +28,25 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (favourites.length > 0) {
+      const newCurrPath =
+        favourites.find((el) => el.id === 'downloads')?.path || 'EE';
+      setCurrentPath(newCurrPath);
+      console.log(newCurrPath);
+      console.log(favourites);
+    }
+  }, [favourites]);
+
   return (
-    <FavouritesContext.Provider value={favourites}>
-      <AppWrapper>
-        <TitleBar />
-        <BodySection />
-      </AppWrapper>
-    </FavouritesContext.Provider>
+    <CurrentPathContext.Provider value={currentPath}>
+      <FavouritesContext.Provider value={favourites}>
+        <AppWrapper>
+          <TitleBar />
+          <BodySection />
+        </AppWrapper>
+      </FavouritesContext.Provider>
+    </CurrentPathContext.Provider>
   );
 };
 

@@ -1,4 +1,5 @@
 export interface Favoutite {
-  url: string;
+  id: string;
+  path: string;
   name: string;
 }
