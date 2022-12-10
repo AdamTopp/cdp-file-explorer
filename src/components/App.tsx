@@ -4,6 +4,7 @@ import BodySection from './BodySection/BodySection';
 import TitleBar from './TitleBar/TitleBar';
 import { fileApi } from '../electron/api';
 import FavouritesContext from '../contexts/FavouritesContext';
+import { Favoutite } from './App.types';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -12,8 +13,8 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => {
-  const [favourites, setFavourites] = useState<string[]>([]);
-  const setData = (event: Event, data: string[]) => {
+  const [favourites, setFavourites] = useState<Favoutite[]>([]);
+  const setData = (event: Event, data: Favoutite[]) => {
     setFavourites(data);
   };
 

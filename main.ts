@@ -31,10 +31,13 @@ function createWindow() {
     const documents = app.getPath('documents');
     const downloads = app.getPath('downloads');
     const desktop = app.getPath('desktop');
+    const documentsName = documents.split('\\').pop();
+    const downloadsName = downloads.split('\\').pop();
+    const desktopName = desktop.split('\\').pop();
     win.webContents.send('getFavourites-response', [
-      documents,
-      downloads,
-      desktop,
+      { url: documents, name: documentsName },
+      { url: downloads, name: downloadsName },
+      { url: desktop, name: desktopName },
     ]);
   });
 
