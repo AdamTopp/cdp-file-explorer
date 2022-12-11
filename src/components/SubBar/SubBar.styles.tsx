@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { transitionEffects, baseBgMain } from '../globalStyles';
+import {
+  transitionEffects,
+  baseBgMain,
+  colorSixth,
+  colorFourth,
+} from '../globalStyles';
 import { Input as MUIInput } from '@mui/material';
 
 export const Location = styled.div`
@@ -10,7 +15,7 @@ export const Location = styled.div`
   align-items: center;
   cursor: default;
   justify-content: center;
-  color: #939393;
+  ${colorFourth};
   ${baseBgMain}
   border: none;
   border-radius: 0;
@@ -23,7 +28,7 @@ export const Input = styled(MUIInput)`
   align-items: center;
   justify-content: center;
   ${transitionEffects}
-  color: #646464;
+  ${colorSixth};
   padding: 0 2.8rem;
   border: none;
   border-radius: 0;

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import CurrentPathContext from '../../../contexts/CurrentPathContext';
 import FilesContext from '../../../contexts/FilesContext';
 import { FolderPanelWrapper, Scrollable } from './FolderPanel.styles';
 import Folder from '../Folder/Folder';

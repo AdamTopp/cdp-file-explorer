@@ -77,41 +77,15 @@ export const Logo = styled.div`
 export const ColorBar = styled.div`
   height: 100%;
   aspect-ratio: 1/3;
-  ${accentBgMain}
+  ${accentBgMain};
 `;
-
-export const Button = styled(MUIButton)<{
-  disabled?: boolean;
-  subbar?: boolean;
-}>`
-  -webkit-app-region: no-drag;
-  height: 3.5rem;
-  min-width: fit-content;
-  aspect-ratio: 1/1;
-  ${transitionEffects}
-  ${buttonStyles}
-  ${(props) => (props.subbar ? baseBgSecondary : '')}
-  svg {
-    ${colorFourth};
-  }
-  ${(props) =>
-    props.disabled &&
-    css`
-      svg {
-        ${colorFifth};
-      }
-    `}
-  border: none;
-  border-radius: 0;
-`;
-
 export const BarWrapper = styled.div<{ subbar?: boolean }>`
   position: fixed;
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 3.5rem;
-  ${baseBgMain}
+  ${baseBgMain};
   filter: drop-shadow(0 0.1rem 0.5rem #141414);
 
   ${(props) =>
@@ -124,5 +98,68 @@ export const BarWrapper = styled.div<{ subbar?: boolean }>`
           -webkit-user-select: none;
           -webkit-app-region: drag;
           user-select: none;
-        `}
+        `};
+`;
+
+export const FileWrapper = styled(MUIButton)<{ folder?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 8.5rem;
+  height: 10rem;
+  ${colorMain}
+
+  svg {
+    ${colorThird};
+
+    ${(props) =>
+      props.folder
+        ? css`
+            width: 7rem;
+            height: 7rem;
+          `
+        : css`
+            width: 5rem;
+            height: 5rem;
+          `}
+  }
+
+  &:hover {
+    ${transitionEffects}
+    ${accentBgSecond}
+    ${colorHighlight};
+    svg {
+      ${transitionEffects}
+      ${colorHighlight};
+    }
+    div {
+      ${transitionEffects}
+      ${colorHighlight};
+    }
+  }
+`;
+
+export const Button = styled(MUIButton)<{
+  disabled?: boolean;
+  subbar?: boolean;
+}>`
+  -webkit-app-region: no-drag;
+  height: 3.5rem;
+  min-width: fit-content;
+  aspect-ratio: 1/1;
+  ${transitionEffects};
+  ${buttonStyles};
+  ${(props) => (props.subbar ? baseBgSecondary : '')};
+  svg {
+    ${colorFourth};
+  }
+  ${(props) =>
+    props.disabled &&
+    css`
+      svg {
+        ${colorFifth};
+      }
+    `};
+  border: none;
+  border-radius: 0;
 `;
