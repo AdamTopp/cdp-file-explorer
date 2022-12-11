@@ -42,6 +42,6 @@ the UI from scratch ✔️ (Material UI)
 + Manual refresh button
 ![image](https://user-images.githubusercontent.com/90351456/206914856-650ae46a-4492-4d48-8bd6-6d18a3b8f1bc.png)
 
-+ Adding current folder to favourites
++ Adding and removing current folder from favourites (for now favourites are not maintained between sessions)
 ![image](https://user-images.githubusercontent.com/90351456/206914918-0c9ec165-40b9-4955-a909-f4ffcb25866d.png)
 ![image](https://user-images.githubusercontent.com/90351456/206914930-a2da049f-4a1e-4e4e-8e4e-20b234df72bf.png)
