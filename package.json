@@ -1,6 +1,9 @@
 {
   "name": "cdp-file-explorer",
-  "sideEffects": ["*.css", "*.scss"],
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "version": "1.0.0",
   "description": "",
   "main": "main.ts",
@@ -10,7 +13,7 @@
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "start": "electron .",
-    "dev": "concurrently \"{watch command}\" \"electron .\" "
+    "dev": "concurrently \"webpack --config webpack.config.js --watch\" \"electron .\" "
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,10 @@
   },
   "homepage": "https://github.com/AdamTopp/cdp-file-explorer#readme",
   "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.17",
+    "@mui/styled-engine-sc": "^5.10.16",
     "concurrently": "^7.6.0",
     "electron": "^22.0.0",
     "react": "^18.2.0",
@@ -42,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^5.46.0",
     "@typescript-eslint/parser": "^5.46.0",
     "babel-loader": "^9.1.0",
+    "babel-plugin-styled-components": "^2.0.7",
     "css-loader": "^6.7.2",
     "electron-reload": "^2.0.0-alpha.1",
     "eslint": "^8.29.0",

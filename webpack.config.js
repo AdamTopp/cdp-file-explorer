@@ -24,7 +24,9 @@ module.exports = {
                   },
                 ],
                 '@babel/preset-react',
+                '@babel/preset-typescript',
               ],
+              plugins: ['babel-plugin-styled-components'],
             },
           },
         ],
@@ -45,6 +47,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@mui/styled-engine': '@mui/styled-engine-sc',
+    },
   },
   output: {
     filename: 'app.js',
