@@ -11,9 +11,10 @@ export const FavouriteWrapper = styled(Button)<{ isActive: boolean }>`
   justify-content: flex-start;
   display: flex;
   align-items: center;
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
 
   ${buttonEffects}
+  overflow: hidden;
   color: #7c7c7c;
 
   ${(props) => (props.isActive ? activeStyle : '')}

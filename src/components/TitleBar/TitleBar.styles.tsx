@@ -48,7 +48,9 @@ export const Section = styled.div`
 
 export const Close = styled(Button)`
   &:hover {
-    color: ivory;
     background-color: #5a2121;
+    svg {
+      color: ivory;
+    }
   }
 `;
