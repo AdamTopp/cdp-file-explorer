@@ -1,5 +1,12 @@
 import styled from 'styled-components';
-import { buttonEffects } from '../../globalStyles';
+import {
+  accentBgSecond,
+  colorHighlight,
+  colorMain,
+  colorSecond,
+  colorThird,
+  transitionEffects,
+} from '../../globalStyles';
 import { Button } from '@mui/material';
 
 export const FolderWrapper = styled(Button)`
@@ -8,25 +15,25 @@ export const FolderWrapper = styled(Button)`
   align-items: center;
   width: 8.5rem;
   height: 10rem;
-  color: #282828;
+  ${colorMain}
 
   svg {
-    color: #353535;
+    ${colorThird};
     width: 7rem;
     height: 7rem;
   }
 
   &:hover {
-    ${buttonEffects}
-    background-color: #421b1b;
-    color: ivory;
+    ${transitionEffects}
+    ${accentBgSecond}
+    ${colorHighlight};
     svg {
-      ${buttonEffects}
-      color: ivory;
+      ${transitionEffects}
+      ${colorHighlight};
     }
     div {
-      ${buttonEffects}
-      color: ivory;
+      ${transitionEffects}
+      ${colorHighlight};
     }
   }
 `;
@@ -40,7 +47,7 @@ export const TextWrapper = styled.div`
   text-overflow: ellipsis;
   width: 100%;
   padding: 0 0.2rem 0.5rem 0.2rem;
-  color: #7c7c7c;
+  ${colorSecond};
 `;
 
 export const IconWrapper = styled.div`
@@ -48,5 +55,5 @@ export const IconWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
-  color: #282828;
+  ${colorMain}
 `;

@@ -1,5 +1,14 @@
 import styled, { css } from 'styled-components';
-import { buttonEffects, buttonStyles } from '../globalStyles';
+import {
+  accentBgMain,
+  transitionEffects,
+  buttonStyles,
+  accentBgThird,
+  colorHighlight,
+  baseBgMain,
+  colorFourth,
+  colorFifth,
+} from '../globalStyles';
 import { Button as MUIButton } from '@mui/material';
 
 export const TitleBarWrapper = styled.div`
@@ -11,7 +20,7 @@ export const TitleBarWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 3.5rem;
-  background-color: #282828;
+  ${baseBgMain}
   filter: drop-shadow(0 0.1rem 0.5rem #141414);
 `;
 
@@ -21,16 +30,16 @@ export const Button = styled(MUIButton)<{ disabled?: boolean }>`
   min-width: fit-content;
   aspect-ratio: 1/1;
   padding: 0;
-  ${buttonEffects}
+  ${transitionEffects}
   ${buttonStyles}
   svg {
-    color: #939393;
+    ${colorFourth};
   }
   ${(props) =>
     props.disabled &&
     css`
       svg {
-        color: #5e5e5e;
+        ${colorFifth};
       }
     `}
   border: none;
@@ -40,7 +49,7 @@ export const Button = styled(MUIButton)<{ disabled?: boolean }>`
 export const Logo = styled.div`
   width: 3.5rem;
   height: 3.5rem;
-  background: linear-gradient(120deg, #dc0d14 30%, #481426 120%);
+  ${accentBgMain};
 `;
 
 export const Section = styled.div`
@@ -49,9 +58,9 @@ export const Section = styled.div`
 
 export const Close = styled(Button)`
   &:hover {
-    background-color: #5a2121;
+    ${accentBgThird}
     svg {
-      color: ivory;
+      ${colorHighlight};
     }
   }
 `;

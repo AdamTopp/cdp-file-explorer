@@ -1,5 +1,13 @@
 import styled, { css } from 'styled-components';
-import { buttonEffects, buttonStyles } from '../globalStyles';
+import {
+  transitionEffects,
+  buttonStyles,
+  baseBgSecondary,
+  baseBgMain,
+  colorFourth,
+  colorFifth,
+  colorSixth,
+} from '../globalStyles';
 import { Button, Input as MUIInput } from '@mui/material';
 
 export const SubBarWrapper = styled.div`
@@ -8,7 +16,7 @@ export const SubBarWrapper = styled.div`
   top: 3.5rem;
   width: 100%;
   height: 3.5rem;
-  background-color: #202020;
+  ${baseBgSecondary}
   filter: drop-shadow(0 0.1rem 0.5rem #141414);
 `;
 
@@ -20,8 +28,8 @@ export const Location = styled.div`
   align-items: center;
   cursor: default;
   justify-content: center;
-  color: #939393;
-  background-color: #282828;
+  ${colorFourth};
+  ${baseBgMain}
   border: none;
   border-radius: 0;
 `;
@@ -32,8 +40,8 @@ export const Input = styled(MUIInput)`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${buttonEffects}
-  color: #646464;
+  ${transitionEffects}
+  ${colorSixth};
   padding: 0 2.8rem;
   border: none;
   border-radius: 0;
@@ -47,17 +55,17 @@ export const SubButton = styled(Button)<{ disabled?: boolean }>`
   aspect-ratio: 1/1;
   min-width: fit-content;
   padding: 0;
-  ${buttonEffects}
+  ${transitionEffects}
   ${buttonStyles}
-  background-color: #202020;
+  ${baseBgSecondary}
   svg {
-    color: #939393;
+    ${colorFourth};
   }
   ${(props) =>
     props.disabled &&
     css`
       svg {
-        color: #5e5e5e;
+        ${colorFifth};
       }
     `}
   border: none;

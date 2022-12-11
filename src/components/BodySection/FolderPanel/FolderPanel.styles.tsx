@@ -1,20 +1,24 @@
 import styled from 'styled-components';
-import { buttonEffects } from '../../globalStyles';
+import {
+  baseBgMain,
+  transitionEffects,
+  accentBgMain,
+} from '../../globalStyles';
 
 export const Scrollable = styled.div`
   overflow-y: scroll;
   flex: 1;
   &::-webkit-scrollbar {
     width: 0.6rem;
-    ${buttonEffects}
+    ${transitionEffects}
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #282828;
+    ${baseBgMain}
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background-color: #dc0d14;
+    ${accentBgMain}
   }
 `;
 

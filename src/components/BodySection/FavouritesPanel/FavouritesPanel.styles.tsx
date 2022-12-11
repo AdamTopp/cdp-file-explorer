@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import {
+  baseBgMain,
+  baseBgSecondary,
+  colorHighlight,
+} from '../../globalStyles';
 
 export const FavouritesPanelWrapper = styled.div`
   display: flex;
@@ -16,8 +21,8 @@ export const SystemHeader = styled.div`
   display: flex;
   margin-top: 1rem;
   width: 90%;
-  background-color: #282828;
-  color: ivory;
+  ${baseBgMain}
+  ${colorHighlight};
   filter: drop-shadow(0 0.1rem 0.5rem #141414);
 `;
 
@@ -25,7 +30,7 @@ export const SystemTitle = styled.div`
   cursor: default;
   user-select: none;
   padding: 0.6rem 1rem 0.5rem 1rem;
-  color: ivory;
+  ${colorHighlight};
 `;
 
 export const SystemBody = styled.div`
@@ -33,7 +38,7 @@ export const SystemBody = styled.div`
   flex-direction: column;
   gap: 0.2rem;
   width: 90%;
-  background-color: #202020;
+  ${baseBgSecondary}
   padding-top: 0.19rem;
   &:last-child {
     margin-bottom: 1rem;

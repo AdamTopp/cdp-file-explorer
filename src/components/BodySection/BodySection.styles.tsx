@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { baseBgTransparent } from '../globalStyles';
 
 export const BodySectionWrapper = styled.div`
   display: flex;
@@ -7,5 +8,5 @@ export const BodySectionWrapper = styled.div`
   margin-top: 7rem;
   overflow: hidden;
 
-  background-color: #000000e2;
+  ${baseBgTransparent}
 `;

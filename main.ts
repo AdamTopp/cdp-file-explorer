@@ -10,6 +10,7 @@ function createWindow() {
     minHeight: 600,
     titleBarStyle: 'hidden',
     frame: false,
+    icon: path.join(__dirname, 'icon.png'),
     transparent: true,
     webPreferences: {
       nodeIntegration: false,

@@ -1,10 +1,16 @@
 import styled, { css } from 'styled-components';
-import { buttonEffects } from '../../../globalStyles';
+import {
+  accentBgMain,
+  accentBgSecond,
+  colorHighlight,
+  colorSecond,
+  transitionEffects,
+} from '../../../globalStyles';
 import { Button } from '@mui/material';
 
 const activeStyle = css`
-  background: linear-gradient(120deg, #dc0d14 30%, #481426 120%);
-  color: ivory;
+  ${accentBgMain}
+  ${colorHighlight};
 `;
 
 export const FavouriteWrapper = styled(Button)<{ isactive: boolean }>`
@@ -13,14 +19,14 @@ export const FavouriteWrapper = styled(Button)<{ isactive: boolean }>`
   align-items: center;
   padding: 1rem 1rem 1rem 1rem;
 
-  ${buttonEffects}
+  ${transitionEffects}
   overflow: hidden;
-  color: #7c7c7c;
+  ${colorSecond};
 
   ${(props) => (props.isactive ? activeStyle : '')}
   &:hover {
-    background-color: #421b1b;
-    color: ivory;
+    ${accentBgSecond}
+    ${colorHighlight};
   }
 
   svg {

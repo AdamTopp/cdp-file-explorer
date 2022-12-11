@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { buttonEffects } from '../../globalStyles';
+import {
+  accentBgSecond,
+  colorHighlight,
+  colorMain,
+  colorThird,
+  transitionEffects,
+} from '../../globalStyles';
 import { Button } from '@mui/material';
 
 export const FolderWrapper = styled(Button)`
@@ -8,25 +14,25 @@ export const FolderWrapper = styled(Button)`
   align-items: center;
   width: 8.5rem;
   height: 10rem;
-  color: #282828;
+  ${colorMain}
 
   svg {
-    color: #353535;
+    ${colorThird};
     width: 5rem;
     height: 5rem;
   }
 
   &:hover {
-    ${buttonEffects}
-    background-color: #421b1b;
-    color: ivory;
+    ${transitionEffects}
+    ${accentBgSecond}
+    ${colorHighlight};
     svg {
-      ${buttonEffects}
-      color: ivory;
+      ${transitionEffects}
+      ${colorHighlight};
     }
     div {
-      ${buttonEffects}
-      color: ivory;
+      ${transitionEffects}
+      ${colorHighlight};
     }
   }
 `;
