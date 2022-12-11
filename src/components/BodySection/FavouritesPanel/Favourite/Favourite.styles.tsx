@@ -14,16 +14,17 @@ const activeStyle = css`
 `;
 
 export const FavouriteWrapper = styled(Button)<{ isactive: boolean }>`
-  justify-content: flex-start;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 1rem 1rem 1rem 1rem;
 
-  ${transitionEffects}
   overflow: hidden;
-  ${colorSecond};
 
+  ${transitionEffects}
+  ${colorSecond};
   ${(props) => (props.isactive ? activeStyle : '')}
+
   &:hover {
     ${accentBgSecond}
     ${colorHighlight};

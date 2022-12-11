@@ -6,8 +6,9 @@ import {
 } from '../../globalStyles';
 
 export const Scrollable = styled.div`
-  overflow-y: scroll;
   flex: 1;
+  overflow-y: scroll;
+
   &::-webkit-scrollbar {
     width: 0.6rem;
     ${transitionEffects}
@@ -23,8 +24,8 @@ export const Scrollable = styled.div`
 `;
 
 export const FolderPanelWrapper = styled.div`
-  gap: 1rem;
-  padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
 `;

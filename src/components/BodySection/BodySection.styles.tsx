@@ -12,15 +12,17 @@ export const BodySectionWrapper = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  filter: drop-shadow(0 -0.1rem 0.5rem #141414);
-  text-align: center;
+  width: 100%;
   max-width: 100%;
+  padding: 0 0.2rem 0.5rem 0.2rem;
+
+  ${colorSecond};
+
+  text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 100%;
-  padding: 0 0.2rem 0.5rem 0.2rem;
-  ${colorSecond};
+  filter: drop-shadow(0 -0.1rem 0.5rem #141414);
 `;
 
 export const IconWrapper = styled.div`
@@ -28,5 +30,6 @@ export const IconWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
+
   ${colorMain}
 `;

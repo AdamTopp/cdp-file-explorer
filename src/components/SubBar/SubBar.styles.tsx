@@ -8,30 +8,36 @@ import {
 import { Input as MUIInput } from '@mui/material';
 
 export const Location = styled.div`
-  user-select: none;
-  height: 100%;
-  width: 2rem;
   display: flex;
   align-items: center;
-  cursor: default;
   justify-content: center;
+
+  height: 100%;
+  width: 2rem;
+
   ${colorFourth};
   ${baseBgMain}
+
   border: none;
   border-radius: 0;
+  user-select: none;
+  cursor: default;
 `;
 
 export const Input = styled(MUIInput)`
-  height: 3.6rem;
-  text-overflow: ellipsis;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 3.6rem;
+  padding: 0 2.8rem;
+
   ${transitionEffects}
   ${colorSixth};
-  padding: 0 2.8rem;
+
+  text-overflow: ellipsis;
   border: none;
   border-radius: 0;
+
   * {
     cursor: pointer;
   }

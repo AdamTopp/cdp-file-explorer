@@ -10,6 +10,7 @@ export const FavouritesPanelWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 20rem;
+
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -19,18 +20,22 @@ export const FavouritesPanelWrapper = styled.div`
 
 export const SystemHeader = styled.div`
   display: flex;
-  margin-top: 1rem;
   width: 90%;
+  margin-top: 1rem;
+
   ${baseBgMain}
   ${colorHighlight};
+
   filter: drop-shadow(0 0.1rem 0.5rem #141414);
 `;
 
 export const SystemTitle = styled.div`
-  cursor: default;
   user-select: none;
   padding: 0.6rem 1rem 0.5rem 1rem;
+
   ${colorHighlight};
+
+  cursor: default;
 `;
 
 export const SystemBody = styled.div`
@@ -38,8 +43,10 @@ export const SystemBody = styled.div`
   flex-direction: column;
   gap: 0.2rem;
   width: 90%;
-  ${baseBgSecondary}
   padding-top: 0.19rem;
+
+  ${baseBgSecondary}
+
   &:last-child {
     margin-bottom: 1rem;
   }
