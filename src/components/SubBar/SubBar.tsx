@@ -5,11 +5,16 @@ import { SubBarWrapper, Location, Input, SubButton } from './SubBar.styles';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import RefreshContext from '../../contexts/RefreshContext';
+import FavouritesContext from '../../contexts/FavouritesContext';
+import StarIcon from '@mui/icons-material/Star';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 const SubBar = () => {
   const { currentPath, setCurrentPath } = useContext(CurrentPathContext);
+  const { favourites, addFavourite } = useContext(FavouritesContext);
   const { refresh } = useContext(RefreshContext);
 
+  const isFavourite = favourites.find((el) => el.path === currentPath);
   const handleBack = () => {
     if (currentPath && currentPath.length > 0) {
       const folders = currentPath.split('\\');
@@ -40,6 +45,9 @@ const SubBar = () => {
       </SubButton>
       <SubButton onClick={refresh}>
         <RefreshIcon />
+      </SubButton>
+      <SubButton onClick={() => addFavourite(currentPath)}>
+        {isFavourite ? <StarIcon /> : <StarOutlineIcon />}
       </SubButton>
     </SubBarWrapper>
   );

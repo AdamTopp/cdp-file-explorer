@@ -51,6 +51,18 @@ const App = () => {
     });
   };
 
+  const handleAddFavourite = (path: string) => {
+    const exist = favourites.find((el) => el.path === path);
+    if (exist) {
+      const newFavourites = favourites.filter((el) => el.path != path);
+      setFavourites(newFavourites);
+    } else {
+      const name = path.split('\\').pop() || 'Folder';
+      const newFavourite = { path, id: path, name };
+      setFavourites([...favourites, newFavourite]);
+    }
+  };
+
   const forward = () => {
     if (!isLast) {
       setHistory({ ...history, index: history.index + 1 });
@@ -100,7 +112,9 @@ const App = () => {
         <CurrentPathContext.Provider
           value={{ currentPath, setCurrentPath: handlePathChange }}
         >
-          <FavouritesContext.Provider value={favourites}>
+          <FavouritesContext.Provider
+            value={{ favourites, addFavourite: handleAddFavourite }}
+          >
             <RefreshContext.Provider value={{ refresh: refreshFiles }}>
               <AppWrapper>
                 <SubBar />

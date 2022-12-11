@@ -17,7 +17,7 @@ import {
 import { Logo } from '../../globalStyles';
 
 const FavouritesPanel = () => {
-  const favourites = useContext(FavouritesContext);
+  const { favourites } = useContext(FavouritesContext);
   const { setCurrentPath, currentPath } = useContext(CurrentPathContext);
 
   const renderIcon = (id: string) => {
@@ -37,7 +37,7 @@ const FavouritesPanel = () => {
     <FavouritesPanelWrapper>
       <SystemHeader>
         <Logo />
-        <SystemTitle>System</SystemTitle>
+        <SystemTitle>Favourite</SystemTitle>
       </SystemHeader>
       <SystemBody>
         {favourites.map((el) => (
