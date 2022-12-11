@@ -9,7 +9,8 @@ import FilesContext from '../contexts/FilesContext';
 import HistoryContext from '../contexts/HistoryContext';
 import { AppWrapper } from './App.styles';
 import '@fontsource/roboto/400.css';
-import SubBar from './SubBar/TitleBar';
+import SubBar from './SubBar/SubBar';
+import RefreshContext from '../contexts/RefreshContext';
 
 const START_FOLDER = 'downloads';
 
@@ -36,6 +37,7 @@ const App = () => {
   };
 
   const refreshFiles = useCallback(() => {
+    console.log('AA - AA');
     if (currentPath && currentPath.length > 0) {
       fileApi.getFiles(currentPath);
     }
@@ -99,10 +101,13 @@ const App = () => {
           value={{ currentPath, setCurrentPath: handlePathChange }}
         >
           <FavouritesContext.Provider value={favourites}>
-            <AppWrapper>
-              <TitleBar />
-              <BodySection />
-            </AppWrapper>
+            <RefreshContext.Provider value={{ refresh: refreshFiles }}>
+              <AppWrapper>
+                <SubBar />
+                <TitleBar />
+                <BodySection />
+              </AppWrapper>
+            </RefreshContext.Provider>
           </FavouritesContext.Provider>
         </CurrentPathContext.Provider>
       </FilesContext.Provider>

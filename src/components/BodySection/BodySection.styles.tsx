@@ -4,7 +4,7 @@ export const BodySectionWrapper = styled.div`
   display: flex;
 
   height: 100%;
-  margin-top: 3.5rem;
+  margin-top: 7rem;
   overflow: hidden;
 
   background-color: #000000e2;
