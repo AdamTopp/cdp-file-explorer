@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import HistoryContext from '../../contexts/HistoryContext';
 import { windowApi } from '../../electron/api';
-import { Button, TitleBarWrapper, Section, Close } from './TitleBar.styles';
+import { Section, Close } from './TitleBar.styles';
 import {
   MinimizeSharp,
   WebAssetSharp,
@@ -9,12 +9,12 @@ import {
   ArrowBackSharp,
   ArrowForwardSharp,
 } from '@mui/icons-material';
-import { Logo } from '../globalStyles';
+import { Logo, Button, BarWrapper } from '../globalStyles';
 
 const TitleBar = () => {
   const { forward, back, isFirst, isLast } = useContext(HistoryContext);
   return (
-    <TitleBarWrapper>
+    <BarWrapper>
       <Section>
         <Logo />
         <Button disabled={isFirst} onClick={back}>
@@ -47,7 +47,7 @@ const TitleBar = () => {
           <CloseSharp />
         </Close>
       </Section>
-    </TitleBarWrapper>
+    </BarWrapper>
   );
 };
 

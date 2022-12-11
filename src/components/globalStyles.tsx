@@ -1,3 +1,4 @@
+import { Button as MUIButton } from '@mui/material';
 import styled, { css } from 'styled-components';
 
 export const accentBgMain = css`
@@ -77,4 +78,51 @@ export const ColorBar = styled.div`
   height: 100%;
   aspect-ratio: 1/3;
   ${accentBgMain}
+`;
+
+export const Button = styled(MUIButton)<{
+  disabled?: boolean;
+  subbar?: boolean;
+}>`
+  -webkit-app-region: no-drag;
+  height: 3.5rem;
+  min-width: fit-content;
+  aspect-ratio: 1/1;
+  ${transitionEffects}
+  ${buttonStyles}
+  ${(props) => (props.subbar ? baseBgSecondary : '')}
+  svg {
+    ${colorFourth};
+  }
+  ${(props) =>
+    props.disabled &&
+    css`
+      svg {
+        ${colorFifth};
+      }
+    `}
+  border: none;
+  border-radius: 0;
+`;
+
+export const BarWrapper = styled.div<{ subbar?: boolean }>`
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 3.5rem;
+  ${baseBgMain}
+  filter: drop-shadow(0 0.1rem 0.5rem #141414);
+
+  ${(props) =>
+    props.subbar
+      ? css`
+          top: 3.5rem;
+          ${baseBgSecondary};
+        `
+      : css`
+          -webkit-user-select: none;
+          -webkit-app-region: drag;
+          user-select: none;
+        `}
 `;
