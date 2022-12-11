@@ -29,7 +29,9 @@ const SubBar = () => {
 
   return (
     <SubBarWrapper>
-      <Location />
+      <SubButton onClick={handleBack}>
+        <KeyboardReturnIcon />
+      </SubButton>
       <Input
         onClick={() => {
           navigator.clipboard.writeText(currentPath);
@@ -40,9 +42,6 @@ const SubBar = () => {
         readOnly
         value={currentPath}
       />
-      <SubButton onClick={handleBack}>
-        <KeyboardReturnIcon />
-      </SubButton>
       <SubButton onClick={refresh}>
         <RefreshIcon />
       </SubButton>

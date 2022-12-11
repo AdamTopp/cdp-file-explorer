@@ -14,7 +14,7 @@ import {
   StarOutlineSharp,
   ContentCopySharp,
 } from '@mui/icons-material';
-import { Logo } from '../../globalStyles';
+import { ColorBar, Logo } from '../../globalStyles';
 
 const FavouritesPanel = () => {
   const { favourites } = useContext(FavouritesContext);
@@ -36,7 +36,7 @@ const FavouritesPanel = () => {
   return (
     <FavouritesPanelWrapper>
       <SystemHeader>
-        <Logo />
+        <ColorBar />
         <SystemTitle>Favourite</SystemTitle>
       </SystemHeader>
       <SystemBody>
@@ -44,7 +44,7 @@ const FavouritesPanel = () => {
           <FavouriteWrapper
             onClick={() => setCurrentPath(el.path)}
             key={el.path}
-            isActive={el.path === currentPath}
+            isactive={el.path === currentPath}
           >
             {renderIcon(el.id)}
             {el.name}

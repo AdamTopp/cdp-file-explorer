@@ -17,8 +17,9 @@ export const TitleBarWrapper = styled.div`
 
 export const Button = styled(MUIButton)<{ disabled?: boolean }>`
   -webkit-app-region: no-drag;
-  width: 3.5rem;
   height: 3.5rem;
+  min-width: fit-content;
+  aspect-ratio: 1/1;
   padding: 0;
   ${buttonEffects}
   ${buttonStyles}

@@ -35,4 +35,7 @@ export const SystemBody = styled.div`
   width: 90%;
   background-color: #202020;
   padding-top: 0.19rem;
+  &:last-child {
+    margin-bottom: 1rem;
+  }
 `;

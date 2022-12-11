@@ -27,7 +27,7 @@ export const Location = styled.div`
 `;
 
 export const Input = styled(MUIInput)`
-  height: 100%;
+  height: 3.6rem;
   text-overflow: ellipsis;
   display: flex;
   align-items: center;
@@ -43,8 +43,9 @@ export const Input = styled(MUIInput)`
 `;
 
 export const SubButton = styled(Button)<{ disabled?: boolean }>`
-  width: 3.5rem;
   height: 3.5rem;
+  aspect-ratio: 1/1;
+  min-width: fit-content;
   padding: 0;
   ${buttonEffects}
   ${buttonStyles}

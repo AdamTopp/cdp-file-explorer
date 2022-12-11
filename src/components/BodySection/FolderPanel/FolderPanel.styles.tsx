@@ -1,10 +1,20 @@
 import styled from 'styled-components';
+import { buttonEffects } from '../../globalStyles';
 
 export const Scrollable = styled.div`
   overflow-y: scroll;
   flex: 1;
   &::-webkit-scrollbar {
-    display: none;
+    width: 0.6rem;
+    ${buttonEffects}
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #282828;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #dc0d14;
   }
 `;
 

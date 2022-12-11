@@ -7,7 +7,7 @@ const activeStyle = css`
   color: ivory;
 `;
 
-export const FavouriteWrapper = styled(Button)<{ isActive: boolean }>`
+export const FavouriteWrapper = styled(Button)<{ isactive: boolean }>`
   justify-content: flex-start;
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@ export const FavouriteWrapper = styled(Button)<{ isActive: boolean }>`
   overflow: hidden;
   color: #7c7c7c;
 
-  ${(props) => (props.isActive ? activeStyle : '')}
+  ${(props) => (props.isactive ? activeStyle : '')}
   &:hover {
     background-color: #421b1b;
     color: ivory;

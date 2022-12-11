@@ -20,3 +20,9 @@ export const Logo = styled.div`
   aspect-ratio: 1/1;
   background: linear-gradient(120deg, #dc0d14 30%, #481426 120%);
 `;
+
+export const ColorBar = styled.div`
+  height: 100%;
+  aspect-ratio: 1/3;
+  background: linear-gradient(120deg, #dc0d14 30%, #481426 120%);
+`;

@@ -37,7 +37,6 @@ const App = () => {
   };
 
   const refreshFiles = useCallback(() => {
-    console.log('AA - AA');
     if (currentPath && currentPath.length > 0) {
       fileApi.getFiles(currentPath);
     }
